@@ -56,7 +56,7 @@ A small online shop for a fictional ceramics workshop in Nantes: catalogue with 
 
 ## Performance
 
-Lighthouse, mobile profile: **Performance 100, Accessibility 100, Best Practices 100, SEO 100** (desktop: 100 on all four). One variable font (37 KB) preloaded, illustrations drawn in SVG, product, checkout and admin code loaded on demand, space reserved for the catalogue so nothing shifts.
+Lighthouse on the live site (22 October 2026), mobile profile: **Performance 98, Accessibility 100, Best Practices 100, SEO 100**; desktop profile: 100 on all four. One variable font (37 KB) preloaded, illustrations drawn in SVG, product, checkout and admin code loaded on demand, space reserved for the catalogue so nothing shifts.
 
 ## Stack
 
