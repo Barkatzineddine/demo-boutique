@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Kaolin &amp; Cendre · Céramiques faites main à Nantes · Boutique (démo)</title>
+<meta name="description" content="Tasses, bols, assiettes et vases en grès tournés à la main à Nantes. Boutique en ligne de démonstration : catalogue, panier, paiement en mode test et administration.">
+<meta name="theme-color" content="#f6f1ea">
+<link rel="canonical" href="https://barkatzineddine.github.io/demo-boutique/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Kaolin &amp; Cendre · Boutique de céramiques (démo)">
+<meta property="og:description" content="Boutique en ligne : catalogue filtrable, fiches produits, panier, paiement simulé et espace d'administration.">
+<meta property="og:image" content="https://barkatzineddine.github.io/demo-boutique/assets/img/og.jpg">
+<meta property="og:url" content="https://barkatzineddine.github.io/demo-boutique/">
+<link rel="preload" href="assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="demo-bar">
+  <p><strong>Démo</strong> · Boutique fictive, paiement en <strong>mode test</strong> : rien n'est débité ni expédié. <a href="https://barkatzineddine.github.io/#contact">Une boutique comme celle-ci&nbsp;?</a></p>
+  <button class="demo-reset" type="button">Réinitialiser la démo</button>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#/" aria-label="Kaolin et Cendre, accueil de la boutique">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M12 9h16l-2 4c4 3 6 8 6 13 0 6-5 9-12 9s-12-3-12-9c0-5 2-10 6-13z" fill="#a6481f"/><path d="M8 27c4 2 8-1 12 0s8 2 12 0v3c0 3-5 5-12 5s-12-2-12-5z" fill="#c9a37f"/></svg>
+      <span><span class="brand-name">Kaolin &amp; Cendre</span><span class="brand-sub">Céramiques · Nantes</span></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#/" class="hide-sm">Boutique</a>
+      <a href="#/atelier" class="hide-sm">L'atelier</a>
+      <a href="#/mes-commandes">Commandes</a>
+      <button class="cart-btn" type="button" aria-haspopup="dialog" aria-label="Panier, 0 article">Panier <span class="cart-count" aria-hidden="true">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<div id="contenu" tabindex="-1">
+<main id="home" class="view-home">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Atelier de céramique · Nantes</p>
+        <h1 id="hero-title">Des céramiques tournées à la main, pour <em>tous les jours</em>.</h1>
+        <p class="lead">Tasses, bols et vases en grès, émaillés dans notre atelier nantais. Petites séries, pièces uniques, expédiées sous 48&nbsp;h dans un emballage sans plastique.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#boutique">Découvrir la boutique</a>
+          <a class="btn btn-ghost btn-lg" href="#/atelier">Notre atelier</a>
+        </div>
+      </div>
+      <div class="hero-art" id="hero-art" aria-hidden="true"></div>
+    </div>
+    <ul class="wrap perks">
+      <li><strong>Fait main</strong> en Loire-Atlantique</li>
+      <li><strong>Livraison offerte</strong> dès 60 €</li>
+      <li><strong>Retours</strong> sous 30 jours</li>
+      <li><strong>Zéro plastique</strong> dans nos colis</li>
+    </ul>
+  </section>
+
+  <section class="section" id="boutique" aria-labelledby="t-boutique">
+    <div class="wrap">
+      <div class="shop-head">
+        <h2 id="t-boutique">La boutique</h2>
+        <p class="hint" id="result-count" aria-live="polite"></p>
+      </div>
+      <div class="shop-layout">
+        <div id="filters" class="filters"></div>
+        <div>
+          <ul id="grid" class="grid" aria-label="Produits"></ul>
+          <p id="no-result" class="empty" hidden>Aucune pièce ne correspond à ces critères. <button type="button" class="linklike" id="reset-filters">Effacer les filtres</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="atelier-home" aria-labelledby="t-atelier">
+    <div class="wrap atelier">
+      <img src="assets/img/atelier-640.webp" srcset="assets/img/atelier-640.webp 640w, assets/img/atelier-1100.webp 1100w" sizes="(min-width: 900px) 540px, 100vw" width="1100" height="825" loading="lazy" decoding="async" alt="Deux paires de mains façonnent un bol en grès sur un tour de potier">
+      <div>
+        <p class="eyebrow">L'atelier</p>
+        <h2 id="t-atelier">De la terre à votre table, sans intermédiaire.</h2>
+        <p>Chaque pièce est tournée, tournassée puis émaillée à la main, avant deux cuissons dont la dernière à 1&nbsp;280&nbsp;°C. Nos émaux sont préparés à l'atelier, certains à partir de cendres de bois : c'est ce qui donne ces nuances qui changent d'une pièce à l'autre.</p>
+        <p>Le grès est vitrifié, donc solide, non poreux et compatible lave-vaisselle et micro-ondes.</p>
+        <a class="btn btn-ghost" href="#/atelier">En savoir plus</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="view-product" class="view" hidden aria-label="Fiche produit"></section>
+<section id="view-checkout" class="view" hidden aria-label="Commande"></section>
+<section id="view-confirm" class="view" hidden aria-label="Confirmation de commande"></section>
+<section id="view-orders" class="view" hidden aria-label="Mes commandes"></section>
+<section id="view-atelier" class="view" hidden aria-label="L'atelier">
+  <div class="wrap narrow prose">
+    <a class="back-link" href="#/">← Retour à la boutique</a>
+    <h1 tabindex="-1">L'atelier</h1>
+    <p class="lead">Kaolin &amp; Cendre est un petit atelier de céramique installé sur l'île de Nantes, ouvert en 2017.</p>
+    <img src="assets/img/atelier-1100.webp" width="1100" height="825" loading="lazy" decoding="async" alt="Mains façonnant un bol sur le tour, outils de potier en arrière-plan">
+    <h2>Notre façon de faire</h2>
+    <p>Nous travaillons un grès chamotté de Saint-Amand-en-Puisaye, tourné à la main en petites séries de 20 à 40 pièces. Après séchage et tournassage, chaque pièce passe une première cuisson à 980&nbsp;°C, puis est émaillée par trempage : la ligne d'émail et ses coulures sont propres à chaque objet.</p>
+    <h2>Entretien</h2>
+    <ul>
+      <li>Vaisselle compatible lave-vaisselle et micro-ondes.</li>
+      <li>Éviter les chocs thermiques (pas de passage direct du congélateur au four).</li>
+      <li>Les vases sont émaillés à l'intérieur et parfaitement étanches.</li>
+    </ul>
+    <h2>Retrait et ateliers d'initiation</h2>
+    <p>Les commandes peuvent être retirées à l'atelier du mardi au samedi. Nous proposons aussi des initiations au tournage le samedi matin, sur réservation.</p>
+    <p><a class="btn btn-primary" href="#/">Voir la boutique</a></p>
+  </div>
+</section>
+<section id="view-admin" class="view" hidden aria-label="Administration"></section>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand-name">Kaolin &amp; Cendre</p>
+      <p>Atelier fictif, île de Nantes<br><a href="mailto:bonjour@kaolin-cendre.example">bonjour@kaolin-cendre.example</a></p>
+      <p><a href="#/mes-commandes">Mes commandes</a> · <a href="#/admin">Administration</a></p>
+    </div>
+    <div id="securite">
+      <h2 class="footer-title">Sécurité &amp; vie privée</h2>
+      <ul class="sec-list">
+        <li>Paiement simulé : aucun numéro de carte n'est demandé. En production, le paiement passe par un prestataire certifié PCI-DSS et la boutique ne voit jamais la carte.</li>
+        <li>Politique de sécurité du contenu stricte et Trusted Types : aucun script tiers, pas d'injection de code.</li>
+        <li>Aucun cookie ni traceur. Stocks, prix et totaux revérifiés au moment de commander.</li>
+        <li>Photos importées en admin ré-encodées dans le navigateur : métadonnées (GPS, appareil) supprimées.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Démonstration</h2>
+      <p>Marque, produits et commandes fictifs. Illustrations des pièces générées en SVG. Photo d'atelier : Lodz Design, CC BY 2.0, via Wikimedia Commons.</p>
+      <p>Boutique conçue par <a href="https://barkatzineddine.github.io/#contact">Zineddine Barkat</a>, développeur web et sécurité. <a href="https://github.com/Barkatzineddine/demo-boutique">Code source</a></p>
+    </div>
+  </div>
+</footer>
+
+<dialog id="cart" class="drawer" aria-labelledby="cart-title"></dialog>
+</body>
+</html>
