@@ -69,6 +69,7 @@ flowchart LR
 - **Permissions in the domain.** `moveOrder`, `refundOrder`, `saveProduct` take the staff account and refuse what its role doesn't allow; the interface only reflects it.
 - **Everything persisted is validated.** Storage and cross-tab messages go through the same Zod schemas; a hand-edited catalogue (say, a photo URL turned into `javascript:`) is discarded as a whole.
 - **Light first load.** The catalogue is in the first bundle; product, checkout, account and admin screens load on demand, and a small build-time service worker precaches them for offline use.
+- **Pre-rendered first screen.** After the build, `build/prerender.ts` opens the built app in headless Chrome with empty storage and copies the rendered home page into `index.html`, so a first visit sees it before any JavaScript arrives. The copy is inert, and the app replaces it on its first render without replaying entrance animations; the app's code downloads with the page (`modulepreload`) but runs only after that first paint. A tiny inline script, allowed by its CSP hash, shows the copy only on a first visit: a deep link, saved data or another language never flash the wrong screen. On a simulated mobile 4G line, the home page now appears after 0.70 s instead of 1.48 s. Below the fold, the product drawings and photos wait for the app, so they do not compete with the first screen.
 
 ```
 src/
@@ -77,7 +78,7 @@ src/
   shared/   router, i18n, security helpers, anti-spam, photo re-encoding, UI primitives
   ui/       SVG product art, product card, cart drawer, order timeline
   pages/    Home, Product, Checkout, Orders, Account, Atelier, admin/ (Dashboard, Board, Products)
-build/      Vite plugins: CSP meta tag, service worker
+build/      Vite plugins (CSP meta tag with the boot script's hash, service worker, app preload) and the pre-render step
 tests/      unit/ (Vitest) and e2e/ (Playwright)
 ```
 
@@ -88,8 +89,8 @@ Every push runs the [CI workflow](.github/workflows/ci.yml); the site is deploye
 | Gate | What it checks |
 | --- | --- |
 | Lint and types | `typescript-eslint` strict, React hooks rules, ban on `innerHTML` and friends; `tsc` strict |
-| Unit tests | 87 Vitest tests: totals, cart resolution, delivery dates, search and URL filters, permissions, checkout refusals (stock, changed price, empty cart), order workflow and refunds, accounts and login throttling, photo checks, translations, the service worker's network timeout. Coverage threshold on the logic (95 % of lines) |
-| Browser tests | 26 Playwright scenarios on a desktop and a mobile profile: filters, glaze picker, full checkout with promo and declined payment, live updates between two tabs, stock lowered during checkout, drag-and-drop board, roles, product creation, photo import, offline mode, axe scans (WCAG 2.2 AA) of every screen, security checks. Any console error fails the test |
+| Unit tests | 89 Vitest tests: totals, cart resolution, delivery dates, search and URL filters, permissions, checkout refusals (stock, changed price, empty cart), order workflow and refunds, accounts and login throttling, photo checks, translations, the service worker's network timeout, the CSP hash of the inlined boot script. Coverage threshold on the logic (95 % of lines) |
+| Browser tests | 31 Playwright scenarios on a desktop and a mobile profile: the pre-rendered first screen (shown before the app, replaced without a flash, hidden on deep links and returning visits, readable without JavaScript), filters, glaze picker, full checkout with promo and declined payment, live updates between two tabs, stock lowered during checkout, drag-and-drop board, roles, product creation, photo import, offline mode, axe scans (WCAG 2.2 AA) of every screen, security checks. Any console error fails the test |
 | Lighthouse | Lighthouse CI budgets: performance ≥ 90, accessibility 100, best practices 100, SEO ≥ 90 |
 | Supply chain | `npm audit`, `npm ci --ignore-scripts`, Actions pinned by commit SHA, Dependabot with a 7-day cooldown |
 

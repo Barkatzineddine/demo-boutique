@@ -25,7 +25,8 @@ export function useCart() {
 export function Tile({ product, glaze, className = 'tile' }: { product: Product; glaze: GlazeId; className?: string }) {
   const { artLabel } = useFormat();
   return (
-    <div className={className} style={{ '--tint': GLAZES[glaze].tint } as CSSProperties}>
+    // data-defer: in the pre-rendered page the drawing waits for the app (build/prerender.ts)
+    <div className={className} data-defer style={{ '--tint': GLAZES[glaze].tint } as CSSProperties}>
       {product.image
         ? <img className="photo" src={product.image} alt={artLabel(product, glaze)} width="640" height="640" loading="lazy" decoding="async" />
         : <ProductArt id={product.id} shape={product.shape} scale={product.scale} glaze={glaze} label={artLabel(product, glaze)} />}

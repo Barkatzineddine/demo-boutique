@@ -27,6 +27,12 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+/* Pre-rendered first visit (build/prerender.ts, src/boot.js): the copy shows at once, entrance
+   animations stay finished while the app replaces it, and what depends on the moment waits for the app */
+[data-prerendered] { display: contents; }
+[data-prerender="skip"] [data-prerendered] { display: none; }
+[data-prerendered] [data-volatile] { visibility: hidden; }
+[data-prerender="shown"] *, [data-prerender="shown"] *::before, [data-prerender="shown"] *::after { animation-delay: -60s !important; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--sans); }
 img, svg { display: block; max-width: 100%; }
 a { color: var(--accent-2); text-underline-offset: 3px; }
@@ -40,6 +46,7 @@ code, kbd { font: .85em var(--mono); }
 [hidden] { display: none !important; }
 .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.noscript { margin: 0; padding: 12px 20px; border-bottom: 1px solid currentColor; }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 8px; }
 .skip:focus { top: 12px; }
 .wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }

@@ -4,6 +4,7 @@ import { Home } from './pages/Home';
 import { app, cartStore } from './state/app';
 import { deviceOrderIds, useSession } from './state/session';
 import { Link, match, navigate, useLocation, useScrollOnNavigate } from './shared/router';
+import { usePrerenderHandoff } from './shared/prerender';
 import { onInstallPrompt } from './shared/sw';
 import { FeedbackProvider, useFeedback } from './shared/ui/Feedback';
 import { CartDrawer, openCart, useCart } from './ui/shop';
@@ -19,6 +20,7 @@ const Admin = lazy(() => import('./pages/admin/Admin'));
 
 export function App() {
   const { t } = useFormat();
+  usePrerenderHandoff();
   return (
     <FeedbackProvider closeLabel={t('common.close')}>
       <Shell />
