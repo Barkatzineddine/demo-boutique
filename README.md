@@ -88,7 +88,7 @@ Every push runs the [CI workflow](.github/workflows/ci.yml); the site is deploye
 | Gate | What it checks |
 | --- | --- |
 | Lint and types | `typescript-eslint` strict, React hooks rules, ban on `innerHTML` and friends; `tsc` strict |
-| Unit tests | 82 Vitest tests: totals, cart resolution, delivery dates, search and URL filters, permissions, checkout refusals (stock, changed price, empty cart), order workflow and refunds, accounts and login throttling, photo checks, translations. Coverage threshold on the logic (95 % of lines) |
+| Unit tests | 87 Vitest tests: totals, cart resolution, delivery dates, search and URL filters, permissions, checkout refusals (stock, changed price, empty cart), order workflow and refunds, accounts and login throttling, photo checks, translations, the service worker's network timeout. Coverage threshold on the logic (95 % of lines) |
 | Browser tests | 26 Playwright scenarios on a desktop and a mobile profile: filters, glaze picker, full checkout with promo and declined payment, live updates between two tabs, stock lowered during checkout, drag-and-drop board, roles, product creation, photo import, offline mode, axe scans (WCAG 2.2 AA) of every screen, security checks. Any console error fails the test |
 | Lighthouse | Lighthouse CI budgets: performance ≥ 90, accessibility 100, best practices 100, SEO ≥ 90 |
 | Supply chain | `npm audit`, `npm ci --ignore-scripts`, Actions pinned by commit SHA, Dependabot with a 7-day cooldown |
