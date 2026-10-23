@@ -7,6 +7,7 @@ export const fr = {
   'demo.resetTitle': 'Réinitialiser la démo ?',
   'demo.resetBody': 'Le catalogue, les commandes, les comptes et le panier de ce navigateur reviennent à leur état de départ.',
   'demo.install': 'Installer l’app',
+  'demo.installable': 'Ce site s’installe comme une application et fonctionne hors ligne.',
   'lang.label': 'Changer de langue',
   'lang.switch': 'English',
 

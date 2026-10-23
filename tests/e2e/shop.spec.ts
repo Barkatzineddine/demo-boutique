@@ -92,7 +92,7 @@ test('stock lowered in another tab during checkout: the order is refused, never 
   await admin.goto('./#/admin?tab=products');
   await admin.getByLabel('Stock de Gobelet « Brume »').fill('1');
   await admin.getByLabel('Stock de Gobelet « Brume »').press('Tab');
-  await expect(admin.locator('.toast')).toContainText('Stock de Gobelet « Brume » : 1.');
+  await expect(admin.locator('.toast', { hasText: 'Stock de Gobelet « Brume » : 1.' })).toBeVisible();
 
   await page.bringToFront();
   await expect(page.locator('.co-summary')).toContainText('× 1', { timeout: 10_000 }); // updated live

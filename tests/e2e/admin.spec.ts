@@ -74,7 +74,7 @@ test('the manager creates a product that appears in the shop', async ({ page }) 
   await page.getByLabel('Noir mat').check();
   await expect(page.locator('.preview-grid')).toContainText('Bol « Lune »');
   await page.getByRole('button', { name: 'Créer le produit' }).click();
-  await expect(page.locator('.toast')).toContainText('Produit créé');
+  await expect(page.locator('.toast', { hasText: 'Produit créé' })).toBeVisible();
   await page.goto('./#/produit/bol-lune');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Bol « Lune »');
   await expect(page.locator('.price-lg')).toHaveText('36,50 €');
