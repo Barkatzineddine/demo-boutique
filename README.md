@@ -94,7 +94,7 @@ Every push runs the [CI workflow](.github/workflows/ci.yml); the site is deploye
 | Lighthouse | Lighthouse CI budgets: performance ≥ 90, accessibility 100, best practices 100, SEO ≥ 90 |
 | Supply chain | `npm audit`, `npm ci --ignore-scripts`, Actions pinned by commit SHA, Dependabot with a 7-day cooldown |
 
-Lighthouse on the production build (23 October 2026): home **98 / 100 / 100 / 100** on mobile, **100 / 100 / 100 / 100** on desktop; product page 99 / 100 / 100 / 100 on mobile.
+Lighthouse on the live site (24 October 2026): home **100 / 100 / 100 / 100** on mobile and on desktop.
 
 ## Security
 
