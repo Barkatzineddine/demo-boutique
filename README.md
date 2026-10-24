@@ -1,13 +1,12 @@
 # Kaolin & Cendre · online shop for a ceramics workshop (demo)
 
 [![CI](https://github.com/Barkatzineddine/demo-boutique/actions/workflows/ci.yml/badge.svg)](https://github.com/Barkatzineddine/demo-boutique/actions/workflows/ci.yml)
-[![Live demo](https://img.shields.io/badge/demo-live-a6481f)](https://barkatzineddine.github.io/demo-boutique/)
 ![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-3178c6)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A small online shop for a fictional ceramics workshop in Nantes: a filterable catalogue with pieces drawn in SVG, a cart, a three-step checkout with a **clearly labelled test-mode payment**, customer accounts and order tracking, plus an admin with two roles, a drag-and-drop order board, a dashboard and a product editor. Orders appear live in the workshop's tab and their progress live in the customer's. French interface with an English switch, installable, works offline.
 
-**Live: <https://barkatzineddine.github.io/demo-boutique/>** (the admin page lists two demo accounts: a manager and a packer). Nothing is charged or shipped.
+**This demo is no longer hosted:** [run it locally](#run-it-locally) in two commands (the admin page lists two demo accounts: a manager and a packer). Nothing is charged or shipped.
 
 ![Order board: paid, being prepared, shipped and delivered columns, cards with arrows to move them](docs/board.webp)
 
@@ -84,7 +83,7 @@ tests/      unit/ (Vitest) and e2e/ (Playwright)
 
 ## Quality gates
 
-Every push runs the [CI workflow](.github/workflows/ci.yml); the site is deployed to GitHub Pages only when everything passes.
+Every push runs the [CI workflow](.github/workflows/ci.yml).
 
 | Gate | What it checks |
 | --- | --- |
